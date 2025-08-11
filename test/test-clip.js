@@ -1,13 +1,10 @@
-
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
 import clip from '../src/clip.js';
 
-/*eslint @stylistic/js/comma-spacing:0*/
-
-const geom1 = [0,0,0,50,0,0,50,10,0,20,10,0,20,20,0,30,20,0,30,30,0,50,30,0,50,40,0,25,40,0,25,50,0,0,50,0,0,60,0,25,60,0];
-const geom2 = [0,0,0,50,0,0,50,10,0,0,10,0];
+const geom1 = [0, 0, 0, 50, 0, 0, 50, 10, 0, 20, 10, 0, 20, 20, 0, 30, 20, 0, 30, 30, 0, 50, 30, 0, 50, 40, 0, 25, 40, 0, 25, 50, 0, 0, 50, 0, 0, 60, 0, 25, 60, 0];
+const geom2 = [0, 0, 0, 50, 0, 0, 50, 10, 0, 0, 10, 0];
 
 test('clips polylines', () => {
 
@@ -18,13 +15,13 @@ test('clips polylines', () => {
 
     const expected = [
         {id: null, type: 'MultiLineString', geometry: [
-            [10,0,1,40,0,1],
-            [40,10,1,20,10,0,20,20,0,30,20,0,30,30,0,40,30,1],
-            [40,40,1,25,40,0,25,50,0,10,50,1],
-            [10,60,1,25,60,0]], tags: 1, minX: 10, minY: 0, maxX: 40, maxY: 60},
+            [10, 0, 1, 40, 0, 1],
+            [40, 10, 1, 20, 10, 0, 20, 20, 0, 30, 20, 0, 30, 30, 0, 40, 30, 1],
+            [40, 40, 1, 25, 40, 0, 25, 50, 0, 10, 50, 1],
+            [10, 60, 1, 25, 60, 0]], tags: 1, minX: 10, minY: 0, maxX: 40, maxY: 60},
         {id: null, type: 'MultiLineString', geometry: [
-            [10,0,1,40,0,1],
-            [40,10,1,10,10,1]], tags: 2, minX: 10, minY: 0, maxX: 40, maxY: 10}
+            [10, 0, 1, 40, 0, 1],
+            [40, 10, 1, 10, 10, 1]], tags: 2, minX: 10, minY: 0, maxX: 40, maxY: 10}
     ];
 
     assert.equal(JSON.stringify(clipped), JSON.stringify(expected));
@@ -63,8 +60,8 @@ test('clips polygons', () => {
     ], 1, 10, 40, 0, -Infinity, Infinity, {});
 
     const expected = [
-        {id: null, type: 'Polygon', geometry: [[10,0,1,40,0,1,40,10,1,20,10,0,20,20,0,30,20,0,30,30,0,40,30,1,40,40,1,25,40,0,25,50,0,10,50,1,10,60,1,25,60,0,10,24,1,10,0,1]], tags: 1, minX: 10, minY: 0, maxX: 40, maxY: 60},
-        {id: null, type: 'Polygon', geometry: [[10,0,1,40,0,1,40,10,1,10,10,1,10,0,1]], tags: 2,  minX: 10, minY: 0, maxX: 40, maxY: 10}
+        {id: null, type: 'Polygon', geometry: [[10, 0, 1, 40, 0, 1, 40, 10, 1, 20, 10, 0, 20, 20, 0, 30, 20, 0, 30, 30, 0, 40, 30, 1, 40, 40, 1, 25, 40, 0, 25, 50, 0, 10, 50, 1, 10, 60, 1, 25, 60, 0, 10, 24, 1, 10, 0, 1]], tags: 1, minX: 10, minY: 0, maxX: 40, maxY: 60},
+        {id: null, type: 'Polygon', geometry: [[10, 0, 1, 40, 0, 1, 40, 10, 1, 10, 10, 1, 10, 0, 1]], tags: 2,  minX: 10, minY: 0, maxX: 40, maxY: 10}
     ];
 
     assert.equal(JSON.stringify(clipped), JSON.stringify(expected));
@@ -78,5 +75,5 @@ test('clips points', () => {
     ], 1, 10, 40, 0, -Infinity, Infinity, {});
 
     assert.deepEqual(clipped, [{id: null, type: 'MultiPoint',
-        geometry: [20,10,0,20,20,0,30,20,0,30,30,0,25,40,0,25,50,0,25,60,0], tags: 1, minX: 20, minY: 10, maxX: 30, maxY: 60}]);
+        geometry: [20, 10, 0, 20, 20, 0, 30, 20, 0, 30, 30, 0, 25, 40, 0, 25, 50, 0, 25, 60, 0], tags: 1, minX: 20, minY: 10, maxX: 30, maxY: 60}]);
 });
