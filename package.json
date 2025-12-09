@@ -1,6 +1,6 @@
 {
     "name": "@tak-ps/geojson-vt",
-    "version": "4.2.0",
+    "version": "4.2.1",
     "description": "Slice GeoJSON data into vector tiles efficiently",
     "homepage": "https://github.com/mapbox/geojson-vt",
     "type": "module",
